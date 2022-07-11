@@ -22,8 +22,11 @@ namespace SummerPractice
         string chosenManifactures, chosenRawMat, chosenMat, type;
         int minWeight = 25980, maxWeight = 25320, priceFromValue, priceToValue, amountOfChosenRawMaterial;
         int maxLength, minLength = 100500, maxWidth, minWidth = 100500, maxHeight, minHeight = 100500;
+
         float maxPressure, minPressure = 1, maxPower, minPower = 25;
         int maxSquare, minSquare = 100500, maxWeightSingle, minWeightSingle = 100500;
+        int minLengthDrum, maxLengthDrum, minDiamDrum, maxDiamDrum;
+        float minFrequencyDrum, maxFrequencyDrum;
         private void checkedListBoxRawMaterials_SelectedIndexChanged(object sender, EventArgs e)
         {
             chosenRawMat = "";
@@ -110,6 +113,13 @@ namespace SummerPractice
                 minHeight, maxHeight, minPressure, 
                 maxPressure, minPower, maxPower, minSquare, maxSquare, minWeightSingle, maxWeightSingle,
                 chosenMat, priceFromValue, priceToValue);
+            tableFilters.Columns[0].Frozen = true;
+            minDiamDrum = Int32.Parse(minDiam.Value.ToString());
+            maxDiamDrum = Int32.Parse(maxDiam.Value.ToString());
+            minLengthDrum = Int32.Parse(minLen.Value.ToString());
+            maxLengthDrum = Int32.Parse(maxLen.Value.ToString());
+            minFrequencyDrum = float.Parse(minFreq.Value.ToString());
+            maxFrequencyDrum = float.Parse(maxFreq.Value.ToString());
         }
 
         private void HidePanels()

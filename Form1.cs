@@ -23,6 +23,68 @@ namespace SummerPractice
         int minWeight = 25980, maxWeight = 25320, priceFromValue, priceToValue, amountOfChosenRawMaterial;
         int maxLength, minLength = 100500, maxWidth, minWidth = 100500, maxHeight, minHeight = 100500;
 
+        private void minDiam_ValueChanged(object sender, EventArgs e)
+        {
+            minDiamDrum = Int32.Parse(minDiam.Value.ToString());
+            tableFilters.DataSource = DataBase.GetFilters2(type, chosenManifactures, minWeight, maxWeight
+                , chosenRawMat, amountOfChosenRawMaterial, minLength, maxLength, minWidth, maxWidth, minHeight, maxHeight, minPressure,
+                maxPressure, minPower, maxPower, minSquare, maxSquare, minWeightSingle, maxWeightSingle,
+                chosenMat, priceToValue, priceFromValue, minLengthDrum, maxLengthDrum, minDiamDrum, maxDiamDrum,
+                minFrequencyDrum, maxFrequencyDrum);
+        }
+
+        private void minLen_ValueChanged(object sender, EventArgs e)
+        {
+            maxLengthDrum = Int32.Parse(maxLen.Value.ToString());
+            tableFilters.DataSource = DataBase.GetFilters2(type, chosenManifactures, minWeight, maxWeight
+                , chosenRawMat, amountOfChosenRawMaterial, minLength, maxLength, minWidth, maxWidth, minHeight, maxHeight, minPressure,
+                maxPressure, minPower, maxPower, minSquare, maxSquare, minWeightSingle, maxWeightSingle,
+                chosenMat, priceToValue, priceFromValue, minLengthDrum, maxLengthDrum, minDiamDrum, maxDiamDrum,
+                minFrequencyDrum, maxFrequencyDrum);
+        }
+
+        private void maxLen_ValueChanged(object sender, EventArgs e)
+        {
+            minLengthDrum = Int32.Parse(minLen.Value.ToString());
+            tableFilters.DataSource = DataBase.GetFilters2(type, chosenManifactures, minWeight, maxWeight
+                , chosenRawMat, amountOfChosenRawMaterial, minLength, maxLength, minWidth, maxWidth, minHeight, maxHeight, minPressure,
+                maxPressure, minPower, maxPower, minSquare, maxSquare, minWeightSingle, maxWeightSingle,
+                chosenMat, priceToValue, priceFromValue, minLengthDrum, maxLengthDrum, minDiamDrum, maxDiamDrum,
+                minFrequencyDrum, maxFrequencyDrum);
+        }
+
+        private void minFreq_ValueChanged(object sender, EventArgs e)
+        {
+            minFrequencyDrum = float.Parse(minFreq.Value.ToString());
+            tableFilters.DataSource = DataBase.GetFilters2(type, chosenManifactures, minWeight, maxWeight
+                , chosenRawMat, amountOfChosenRawMaterial, minLength, maxLength, minWidth, maxWidth, minHeight, maxHeight, minPressure,
+                maxPressure, minPower, maxPower, minSquare, maxSquare, minWeightSingle, maxWeightSingle,
+                chosenMat, priceToValue, priceFromValue, minLengthDrum, maxLengthDrum, minDiamDrum, maxDiamDrum,
+                minFrequencyDrum, maxFrequencyDrum);
+        }
+
+        private void maxFreq_ValueChanged(object sender, EventArgs e)
+        {
+            maxFrequencyDrum = float.Parse(maxFreq.Value.ToString());
+            tableFilters.DataSource = DataBase.GetFilters2(type, chosenManifactures, minWeight, maxWeight
+                , chosenRawMat, amountOfChosenRawMaterial, minLength, maxLength, minWidth, maxWidth, minHeight, maxHeight, minPressure,
+                maxPressure, minPower, maxPower, minSquare, maxSquare, minWeightSingle, maxWeightSingle,
+                chosenMat, priceToValue, priceFromValue, minLengthDrum, maxLengthDrum, minDiamDrum, maxDiamDrum,
+                minFrequencyDrum, maxFrequencyDrum);
+        }
+
+        private void maxDiam_ValueChanged(object sender, EventArgs e)
+        {
+            maxDiamDrum = Int32.Parse(maxDiam.Value.ToString());
+            tableFilters.DataSource = DataBase.GetFilters2(type, chosenManifactures, minWeight, maxWeight
+                , chosenRawMat, amountOfChosenRawMaterial, minLength, maxLength, minWidth, maxWidth, minHeight, maxHeight, minPressure,
+                maxPressure, minPower, maxPower, minSquare, maxSquare, minWeightSingle, maxWeightSingle,
+                chosenMat, priceToValue, priceFromValue, minLengthDrum, maxLengthDrum, minDiamDrum, maxDiamDrum,
+                minFrequencyDrum, maxFrequencyDrum);
+        }
+
+
+
         float maxPressure, minPressure = 1, maxPower, minPower = 25;
         int maxSquare, minSquare = 100500, maxWeightSingle, minWeightSingle = 100500;
         int minLengthDrum, maxLengthDrum, minDiamDrum, maxDiamDrum;
@@ -42,7 +104,8 @@ namespace SummerPractice
             tableFilters.DataSource = DataBase.GetFilters2(type, chosenManifactures, minWeight, maxWeight
                 , chosenRawMat, amountOfChosenRawMaterial, minLength, maxLength, minWidth, maxWidth, minHeight, maxHeight, minPressure,
                 maxPressure, minPower, maxPower, minSquare, maxSquare, minWeightSingle, maxWeightSingle,
-                chosenMat, priceToValue, priceFromValue);
+                chosenMat, priceToValue, priceFromValue, minLengthDrum, maxLengthDrum, minDiamDrum, maxDiamDrum,
+                minFrequencyDrum, maxFrequencyDrum);
         }
 
         private void checkedListBoxMaterials_SelectedIndexChanged(object sender, EventArgs e)
@@ -58,7 +121,8 @@ namespace SummerPractice
             tableFilters.DataSource = DataBase.GetFilters2(type, chosenManifactures, minWeight, maxWeight
                 , chosenRawMat, amountOfChosenRawMaterial, minLength, maxLength, minWidth, maxWidth, minHeight, maxHeight, minPressure,
                 maxPressure, minPower, maxPower, minSquare, maxSquare, minWeightSingle, maxWeightSingle,
-                chosenMat, priceToValue, priceFromValue);
+                chosenMat, priceToValue, priceFromValue, minLengthDrum, maxLengthDrum, minDiamDrum, maxDiamDrum,
+                minFrequencyDrum, maxFrequencyDrum);
         }
 
         private void priceTo_ValueChanged(object sender, EventArgs e)
@@ -67,7 +131,8 @@ namespace SummerPractice
             tableFilters.DataSource = DataBase.GetFilters2(type, chosenManifactures, minWeight, maxWeight
                 , chosenRawMat, amountOfChosenRawMaterial, minLength, maxLength, minWidth, maxWidth, minHeight, maxHeight, minPressure,
                 maxPressure, minPower, maxPower, minSquare, maxSquare, minWeightSingle, maxWeightSingle,
-                chosenMat, priceToValue, priceFromValue);
+                chosenMat, priceToValue, priceFromValue, minLengthDrum, maxLengthDrum, minDiamDrum, maxDiamDrum,
+                minFrequencyDrum, maxFrequencyDrum);
         }
 
         private void priceFrom_ValueChanged(object sender, EventArgs e)
@@ -76,7 +141,8 @@ namespace SummerPractice
             tableFilters.DataSource = DataBase.GetFilters2(type, chosenManifactures, minWeight, maxWeight
                 , chosenRawMat, amountOfChosenRawMaterial, minLength, maxLength, minWidth, maxWidth, minHeight, maxHeight, minPressure,
                 maxPressure, minPower, maxPower, minSquare, maxSquare, minWeightSingle, maxWeightSingle,
-                chosenMat, priceToValue, priceFromValue);
+                chosenMat, priceToValue, priceFromValue, minLengthDrum, maxLengthDrum, minDiamDrum, maxDiamDrum,
+                minFrequencyDrum, maxFrequencyDrum);
         }
 
         public Form1()
@@ -108,11 +174,11 @@ namespace SummerPractice
             chosenManifactures = chosenRawMat = chosenMat = type = "all";
             priceFromValue = Int32.Parse(priceFrom.Value.ToString());
             priceToValue = Int32.Parse(priceTo.Value.ToString());
-            tableFilters.DataSource = DataBase.GetFilters2(type, chosenManifactures, minWeight, maxWeight,
-                chosenRawMat, amountOfChosenRawMaterial, minLength, maxLength, minWidth, maxWidth, 
-                minHeight, maxHeight, minPressure, 
+            tableFilters.DataSource = DataBase.GetFilters2(type, chosenManifactures, minWeight, maxWeight
+                , chosenRawMat, amountOfChosenRawMaterial, minLength, maxLength, minWidth, maxWidth, minHeight, maxHeight, minPressure,
                 maxPressure, minPower, maxPower, minSquare, maxSquare, minWeightSingle, maxWeightSingle,
-                chosenMat, priceFromValue, priceToValue);
+                chosenMat, priceToValue, priceFromValue, minLengthDrum, maxLengthDrum, minDiamDrum, maxDiamDrum,
+                minFrequencyDrum, maxFrequencyDrum);
             tableFilters.Columns[0].Frozen = true;
             minDiamDrum = Int32.Parse(minDiam.Value.ToString());
             maxDiamDrum = Int32.Parse(maxDiam.Value.ToString());
@@ -141,7 +207,8 @@ namespace SummerPractice
             tableFilters.DataSource = DataBase.GetFilters2(type, chosenManifactures, minWeight, maxWeight
                 , chosenRawMat, amountOfChosenRawMaterial, minLength, maxLength, minWidth, maxWidth, minHeight, maxHeight, minPressure,
                 maxPressure, minPower, maxPower, minSquare, maxSquare, minWeightSingle, maxWeightSingle,
-                chosenMat, priceToValue, priceFromValue);
+                chosenMat, priceToValue, priceFromValue, minLengthDrum, maxLengthDrum, minDiamDrum, maxDiamDrum,
+                minFrequencyDrum, maxFrequencyDrum);
 
         }
 
@@ -153,7 +220,8 @@ namespace SummerPractice
             tableFilters.DataSource = DataBase.GetFilters2(type, chosenManifactures, minWeight, maxWeight
                 , chosenRawMat, amountOfChosenRawMaterial, minLength, maxLength, minWidth, maxWidth, minHeight, maxHeight, minPressure,
                 maxPressure, minPower, maxPower, minSquare, maxSquare, minWeightSingle, maxWeightSingle,
-                chosenMat, priceToValue, priceFromValue);
+                chosenMat, priceToValue, priceFromValue, minLengthDrum, maxLengthDrum, minDiamDrum, maxDiamDrum,
+                minFrequencyDrum, maxFrequencyDrum);
             for (int i = 0; i < checkedListBoxManifactures.Items.Count; i++)
                 checkedListBoxManifactures.SetItemCheckState(i, CheckState.Unchecked);
             for (int i = 0; i < checkedListBoxMaterials.Items.Count; i++)
@@ -175,7 +243,8 @@ namespace SummerPractice
             tableFilters.DataSource = DataBase.GetFilters2(type, chosenManifactures, minWeight, maxWeight
                 , chosenRawMat, amountOfChosenRawMaterial, minLength, maxLength, minWidth, maxWidth, minHeight, maxHeight, minPressure,
                 maxPressure, minPower, maxPower, minSquare, maxSquare, minWeightSingle, maxWeightSingle,
-                chosenMat, priceToValue, priceFromValue);
+                chosenMat, priceToValue, priceFromValue, minLengthDrum, maxLengthDrum, minDiamDrum, maxDiamDrum,
+                minFrequencyDrum, maxFrequencyDrum);
         }
     }
 }

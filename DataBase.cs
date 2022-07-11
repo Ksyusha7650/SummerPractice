@@ -61,7 +61,8 @@ namespace SummerPractice
             int maxLength, int minWidth, int maxWidth, int minHeight, int maxHeight,
             float minPressure,  float maxPressure, float minPower, float maxPower,
             int minSquare, int maxSquare, int minWeightSingle, int maxWeightSingle,
-            string chosenMaterials, int minPrice, int maxPrice)
+            string chosenMaterials, int maxPrice, int minPrice, int minLen, int maxLen, 
+            int minDiam, int maxDiam, float minFr, float maxFr)
         {
             Connect();
             MySqlCommand myCommand = new MySqlCommand();
@@ -89,12 +90,12 @@ namespace SummerPractice
             myCommand.Parameters.AddWithValue("@min_цена", minPrice);
             myCommand.Parameters.AddWithValue("@max_цена", maxPrice);
             myCommand.Parameters.AddWithValue("@количествоСырья", amountRawMat);
-            myCommand.Parameters.AddWithValue("@min_дли", 2);
-            myCommand.Parameters.AddWithValue("@max_дли", 1);
-            myCommand.Parameters.AddWithValue("@min_диам", 2);
-            myCommand.Parameters.AddWithValue("@max_диам", 1);
-            myCommand.Parameters.AddWithValue("@min_час", 2);
-            myCommand.Parameters.AddWithValue("@max_час", 1);
+            myCommand.Parameters.AddWithValue("@min_дли", minLen);
+            myCommand.Parameters.AddWithValue("@max_дли", maxLen);
+            myCommand.Parameters.AddWithValue("@min_диам", minDiam);
+            myCommand.Parameters.AddWithValue("@max_диам", maxDiam);
+            myCommand.Parameters.AddWithValue("@min_час", minFr);
+            myCommand.Parameters.AddWithValue("@max_час", maxFr);
             myCommand.Parameters.AddWithValue("@min_ширл", 2);
             myCommand.Parameters.AddWithValue("@max_ширл", 1);
             myCommand.Parameters.AddWithValue("@min_скоростьЛенты", 2);
@@ -106,7 +107,6 @@ namespace SummerPractice
             myCommand.Parameters.AddWithValue("@min_колвоСектДиск", 2);
             myCommand.Parameters.AddWithValue("@max_колвоСектДиск", 1);
             myCommand.CommandText = "SelectAllOfType";
-            //  myCommand.CommandText = "Amount";
               myCommand.CommandType = CommandType.StoredProcedure;
             myCommand.ExecuteNonQuery();
             DataTable dt = new DataTable();

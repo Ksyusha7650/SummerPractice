@@ -305,6 +305,11 @@
             this.priceFrom.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.priceFrom.Location = new System.Drawing.Point(53, 355);
             this.priceFrom.Margin = new System.Windows.Forms.Padding(4);
+            this.priceFrom.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
             this.priceFrom.Minimum = new decimal(new int[] {
             1,
             0,
@@ -489,7 +494,7 @@
             this.panelTape.Controls.Add(this.label18);
             this.panelTape.Controls.Add(this.label19);
             this.panelTape.Controls.Add(this.numericUpDown5);
-            this.panelTape.Location = new System.Drawing.Point(6, 0);
+            this.panelTape.Location = new System.Drawing.Point(5, 3);
             this.panelTape.Name = "panelTape";
             this.panelTape.Size = new System.Drawing.Size(376, 237);
             this.panelTape.TabIndex = 29;
@@ -683,7 +688,7 @@
             this.panelDisc.Controls.Add(this.label23);
             this.panelDisc.Controls.Add(this.label24);
             this.panelDisc.Controls.Add(this.numericUpDown7);
-            this.panelDisc.Location = new System.Drawing.Point(3, 3);
+            this.panelDisc.Location = new System.Drawing.Point(7, 3);
             this.panelDisc.Name = "panelDisc";
             this.panelDisc.Size = new System.Drawing.Size(376, 237);
             this.panelDisc.TabIndex = 30;
@@ -867,10 +872,10 @@
             // drumFilter
             // 
             this.drumFilter.BackColor = System.Drawing.Color.Transparent;
-            this.drumFilter.Controls.Add(this.label31);
-            this.drumFilter.Controls.Add(this.label30);
             this.drumFilter.Controls.Add(this.panelTape);
+            this.drumFilter.Controls.Add(this.label31);
             this.drumFilter.Controls.Add(this.panelDisc);
+            this.drumFilter.Controls.Add(this.label30);
             this.drumFilter.Controls.Add(this.label28);
             this.drumFilter.Controls.Add(this.label22);
             this.drumFilter.Controls.Add(this.maxLen);
@@ -886,7 +891,7 @@
             this.drumFilter.Controls.Add(this.label10);
             this.drumFilter.Controls.Add(this.label13);
             this.drumFilter.Controls.Add(this.minDiam);
-            this.drumFilter.Location = new System.Drawing.Point(19, 73);
+            this.drumFilter.Location = new System.Drawing.Point(12, 76);
             this.drumFilter.Name = "drumFilter";
             this.drumFilter.Size = new System.Drawing.Size(388, 237);
             this.drumFilter.TabIndex = 36;
@@ -960,6 +965,7 @@
             0,
             0,
             0});
+            this.maxLen.ValueChanged += new System.EventHandler(this.maxLen_ValueChanged);
             // 
             // maxFreq
             // 
@@ -992,6 +998,7 @@
             0,
             0,
             196608});
+            this.maxFreq.ValueChanged += new System.EventHandler(this.maxFreq_ValueChanged);
             // 
             // label29
             // 
@@ -1043,6 +1050,7 @@
             0,
             0,
             0});
+            this.minLen.ValueChanged += new System.EventHandler(this.minLen_ValueChanged);
             // 
             // minFreq
             // 
@@ -1076,6 +1084,7 @@
             0,
             0,
             196608});
+            this.minFreq.ValueChanged += new System.EventHandler(this.minFreq_ValueChanged);
             // 
             // label14
             // 
@@ -1137,6 +1146,7 @@
             0,
             0,
             0});
+            this.maxDiam.ValueChanged += new System.EventHandler(this.maxDiam_ValueChanged);
             // 
             // label10
             // 
@@ -1186,6 +1196,7 @@
             0,
             0,
             0});
+            this.minDiam.ValueChanged += new System.EventHandler(this.minDiam_ValueChanged);
             // 
             // buttonReset
             // 
@@ -1225,7 +1236,7 @@
             this.panelButtons.Controls.Add(this.buttonDiscFilter, 0, 2);
             this.panelButtons.Controls.Add(this.buttonDrumFilter, 0, 0);
             this.panelButtons.Controls.Add(this.buttonTapeFilter, 0, 1);
-            this.panelButtons.Location = new System.Drawing.Point(53, 86);
+            this.panelButtons.Location = new System.Drawing.Point(53, 87);
             this.panelButtons.Margin = new System.Windows.Forms.Padding(4);
             this.panelButtons.Name = "panelButtons";
             this.panelButtons.RowCount = 3;

@@ -1,4 +1,4 @@
 # SummerPractice
-#not interesting
+#not_interesting
 
-P.S. пора собираться в вуз...
+🤼‍♀️

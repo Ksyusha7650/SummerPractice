@@ -14,7 +14,7 @@ namespace SummerPractice
     {
         enum filters
         {
-            drum,tape, disc, all = -1
+            drum,tape, disk, all = -1
         }
         List<Panel> panels = new List<Panel>();
         List<Button> buttons = new List<Button>();
@@ -71,6 +71,36 @@ namespace SummerPractice
                 maxPressure, minPower, maxPower, minSquare, maxSquare, minWeightSingle, maxWeightSingle,
                 chosenMat, priceToValue, priceFromValue, minLengthDrum, maxLengthDrum, minDiamDrum, maxDiamDrum,
                 minFrequencyDrum, maxFrequencyDrum);
+        }
+
+        private void buttonSort_Click(object sender, EventArgs e)
+        {
+            string type_sort = ((Button)sender).Tag.ToString();
+            int amountCol = tableFilters.ColumnCount - 1;
+            switch (type_sort)
+            {
+                case "default":
+                    {
+                        tableFilters.Sort(tableFilters.Columns[0], ListSortDirection.Ascending);
+                        break;
+                    }
+                case "alphabet":
+                    {
+                        tableFilters.Sort(tableFilters.Columns[0], ListSortDirection.Ascending);
+                        break;
+                    }
+                case "price_up":
+                    {
+                      
+                        tableFilters.Sort(tableFilters.Columns[amountCol], ListSortDirection.Ascending);
+                        break;
+                    }
+                case "price_down":
+                    {
+                        tableFilters.Sort(tableFilters.Columns[amountCol], ListSortDirection.Descending);
+                        break;
+                    }
+            }
         }
 
         private void maxDiam_ValueChanged(object sender, EventArgs e)
@@ -155,7 +185,7 @@ namespace SummerPractice
             panels.Add(panelButtons);
             buttons.Add(buttonDrumFilter);
             buttons.Add(buttonTapeFilter);
-            buttons.Add(buttonDiscFilter);
+            buttons.Add(buttonDiskFilter);
             manifactures = DataBase.GetManifactures();
             foreach (String manifacture in manifactures)
             {

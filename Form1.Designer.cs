@@ -39,7 +39,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.buttonSortAlphabet = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonSortDefault = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.priceFrom = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
@@ -98,7 +98,7 @@
             this.buttonReset = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.panelButtons = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonDiscFilter = new System.Windows.Forms.Button();
+            this.buttonDiskFilter = new System.Windows.Forms.Button();
             this.buttonDrumFilter = new System.Windows.Forms.Button();
             this.buttonTapeFilter = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tableFilters)).BeginInit();
@@ -210,7 +210,7 @@
             this.tableLayoutPanel1.Controls.Add(this.button4, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.buttonSortAlphabet, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.button2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.buttonSortDefault, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(207, 4);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -233,8 +233,10 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(174, 44);
             this.button4.TabIndex = 3;
+            this.button4.Tag = "price_up";
             this.button4.Text = "цене (возр.)";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.buttonSort_Click);
             // 
             // buttonSortAlphabet
             // 
@@ -250,8 +252,10 @@
             this.buttonSortAlphabet.Name = "buttonSortAlphabet";
             this.buttonSortAlphabet.Size = new System.Drawing.Size(174, 44);
             this.buttonSortAlphabet.TabIndex = 2;
+            this.buttonSortAlphabet.Tag = "alphabet";
             this.buttonSortAlphabet.Text = "алфавиту (а-я)";
             this.buttonSortAlphabet.UseVisualStyleBackColor = true;
+            this.buttonSortAlphabet.Click += new System.EventHandler(this.buttonSort_Click);
             // 
             // button2
             // 
@@ -267,25 +271,29 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(127, 44);
             this.button2.TabIndex = 1;
+            this.button2.Tag = "price_down";
             this.button2.Text = "цене (уб.)";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.buttonSort_Click);
             // 
-            // button1
+            // buttonSortDefault
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(12)))), ((int)(((byte)(255)))));
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(154)))), ((int)(((byte)(255)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.button1.Location = new System.Drawing.Point(4, 4);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(174, 44);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "умолчанию";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonSortDefault.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonSortDefault.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonSortDefault.FlatAppearance.BorderSize = 0;
+            this.buttonSortDefault.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(12)))), ((int)(((byte)(255)))));
+            this.buttonSortDefault.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(154)))), ((int)(((byte)(255)))));
+            this.buttonSortDefault.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSortDefault.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.buttonSortDefault.Location = new System.Drawing.Point(4, 4);
+            this.buttonSortDefault.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSortDefault.Name = "buttonSortDefault";
+            this.buttonSortDefault.Size = new System.Drawing.Size(174, 44);
+            this.buttonSortDefault.TabIndex = 0;
+            this.buttonSortDefault.Tag = "default";
+            this.buttonSortDefault.Text = "умолчанию";
+            this.buttonSortDefault.UseVisualStyleBackColor = true;
+            this.buttonSortDefault.Click += new System.EventHandler(this.buttonSort_Click);
             // 
             // label3
             // 
@@ -494,7 +502,7 @@
             this.panelTape.Controls.Add(this.label18);
             this.panelTape.Controls.Add(this.label19);
             this.panelTape.Controls.Add(this.numericUpDown5);
-            this.panelTape.Location = new System.Drawing.Point(5, 3);
+            this.panelTape.Location = new System.Drawing.Point(5, 0);
             this.panelTape.Name = "panelTape";
             this.panelTape.Size = new System.Drawing.Size(376, 237);
             this.panelTape.TabIndex = 29;
@@ -688,7 +696,7 @@
             this.panelDisc.Controls.Add(this.label23);
             this.panelDisc.Controls.Add(this.label24);
             this.panelDisc.Controls.Add(this.numericUpDown7);
-            this.panelDisc.Location = new System.Drawing.Point(7, 3);
+            this.panelDisc.Location = new System.Drawing.Point(12, 60);
             this.panelDisc.Name = "panelDisc";
             this.panelDisc.Size = new System.Drawing.Size(376, 237);
             this.panelDisc.TabIndex = 30;
@@ -874,7 +882,6 @@
             this.drumFilter.BackColor = System.Drawing.Color.Transparent;
             this.drumFilter.Controls.Add(this.panelTape);
             this.drumFilter.Controls.Add(this.label31);
-            this.drumFilter.Controls.Add(this.panelDisc);
             this.drumFilter.Controls.Add(this.label30);
             this.drumFilter.Controls.Add(this.label28);
             this.drumFilter.Controls.Add(this.label22);
@@ -891,7 +898,7 @@
             this.drumFilter.Controls.Add(this.label10);
             this.drumFilter.Controls.Add(this.label13);
             this.drumFilter.Controls.Add(this.minDiam);
-            this.drumFilter.Location = new System.Drawing.Point(12, 76);
+            this.drumFilter.Location = new System.Drawing.Point(19, 73);
             this.drumFilter.Name = "drumFilter";
             this.drumFilter.Size = new System.Drawing.Size(388, 237);
             this.drumFilter.TabIndex = 36;
@@ -1233,10 +1240,10 @@
             // 
             this.panelButtons.ColumnCount = 1;
             this.panelButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.panelButtons.Controls.Add(this.buttonDiscFilter, 0, 2);
+            this.panelButtons.Controls.Add(this.buttonDiskFilter, 0, 2);
             this.panelButtons.Controls.Add(this.buttonDrumFilter, 0, 0);
             this.panelButtons.Controls.Add(this.buttonTapeFilter, 0, 1);
-            this.panelButtons.Location = new System.Drawing.Point(53, 87);
+            this.panelButtons.Location = new System.Drawing.Point(53, 88);
             this.panelButtons.Margin = new System.Windows.Forms.Padding(4);
             this.panelButtons.Name = "panelButtons";
             this.panelButtons.RowCount = 3;
@@ -1246,27 +1253,27 @@
             this.panelButtons.Size = new System.Drawing.Size(303, 209);
             this.panelButtons.TabIndex = 38;
             // 
-            // buttonDiscFilter
+            // buttonDiskFilter
             // 
-            this.buttonDiscFilter.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.buttonDiscFilter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonDiscFilter.FlatAppearance.BorderSize = 0;
-            this.buttonDiscFilter.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(12)))), ((int)(((byte)(255)))));
-            this.buttonDiscFilter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(154)))), ((int)(((byte)(255)))));
-            this.buttonDiscFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDiscFilter.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonDiscFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.buttonDiscFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDiscFilter.Location = new System.Drawing.Point(4, 142);
-            this.buttonDiscFilter.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonDiscFilter.Name = "buttonDiscFilter";
-            this.buttonDiscFilter.Size = new System.Drawing.Size(295, 63);
-            this.buttonDiscFilter.TabIndex = 20;
-            this.buttonDiscFilter.Tag = "2";
-            this.buttonDiscFilter.Text = "– Дисковый фильтр";
-            this.buttonDiscFilter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDiscFilter.UseVisualStyleBackColor = true;
-            this.buttonDiscFilter.Click += new System.EventHandler(this.buttonFilter_Click);
+            this.buttonDiskFilter.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.buttonDiskFilter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonDiskFilter.FlatAppearance.BorderSize = 0;
+            this.buttonDiskFilter.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(12)))), ((int)(((byte)(255)))));
+            this.buttonDiskFilter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(154)))), ((int)(((byte)(255)))));
+            this.buttonDiskFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDiskFilter.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonDiskFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.buttonDiskFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDiskFilter.Location = new System.Drawing.Point(4, 142);
+            this.buttonDiskFilter.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDiskFilter.Name = "buttonDiskFilter";
+            this.buttonDiskFilter.Size = new System.Drawing.Size(295, 63);
+            this.buttonDiskFilter.TabIndex = 20;
+            this.buttonDiskFilter.Tag = "2";
+            this.buttonDiskFilter.Text = "– Дисковый фильтр";
+            this.buttonDiskFilter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDiskFilter.UseVisualStyleBackColor = true;
+            this.buttonDiskFilter.Click += new System.EventHandler(this.buttonFilter_Click);
             // 
             // buttonDrumFilter
             // 
@@ -1322,6 +1329,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(246)))));
             this.ClientSize = new System.Drawing.Size(1524, 964);
             this.Controls.Add(this.panelButtons);
+            this.Controls.Add(this.panelDisc);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.drumFilter);
             this.Controls.Add(this.label9);
@@ -1390,7 +1398,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button buttonSortAlphabet;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonSortDefault;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown priceFrom;
         private System.Windows.Forms.Label label4;
@@ -1449,7 +1457,7 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.NumericUpDown minLen;
         private System.Windows.Forms.TableLayoutPanel panelButtons;
-        private System.Windows.Forms.Button buttonDiscFilter;
+        private System.Windows.Forms.Button buttonDiskFilter;
         private System.Windows.Forms.Button buttonDrumFilter;
         private System.Windows.Forms.Button buttonTapeFilter;
     }

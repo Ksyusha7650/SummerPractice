@@ -55,16 +55,16 @@
             this.label9 = new System.Windows.Forms.Label();
             this.panelTape = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
-            this.numericUpDown18 = new System.Windows.Forms.NumericUpDown();
+            this.speedMax = new System.Windows.Forms.NumericUpDown();
             this.label50 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
-            this.numericUpDown19 = new System.Windows.Forms.NumericUpDown();
+            this.speedMin = new System.Windows.Forms.NumericUpDown();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.widthMaxTape = new System.Windows.Forms.NumericUpDown();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
+            this.widthMinTape = new System.Windows.Forms.NumericUpDown();
             this.panelDisc = new System.Windows.Forms.Panel();
             this.label26 = new System.Windows.Forms.Label();
             this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
@@ -107,10 +107,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.priceTo)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.panelTape.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.speedMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.speedMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.widthMaxTape)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.widthMinTape)).BeginInit();
             this.panelDisc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).BeginInit();
@@ -326,6 +326,7 @@
             this.priceFrom.Name = "priceFrom";
             this.priceFrom.Size = new System.Drawing.Size(119, 30);
             this.priceFrom.TabIndex = 5;
+            this.priceFrom.Tag = "priceMin";
             this.priceFrom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.priceFrom.ThousandsSeparator = true;
             this.priceFrom.Value = new decimal(new int[] {
@@ -333,7 +334,7 @@
             0,
             0,
             0});
-            this.priceFrom.ValueChanged += new System.EventHandler(this.priceFrom_ValueChanged);
+            this.priceFrom.ValueChanged += new System.EventHandler(this.object_ValueChanged);
             // 
             // label4
             // 
@@ -378,6 +379,7 @@
             this.priceTo.Name = "priceTo";
             this.priceTo.Size = new System.Drawing.Size(119, 30);
             this.priceTo.TabIndex = 7;
+            this.priceTo.Tag = "priceMax";
             this.priceTo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.priceTo.ThousandsSeparator = true;
             this.priceTo.Value = new decimal(new int[] {
@@ -385,7 +387,7 @@
             0,
             0,
             0});
-            this.priceTo.ValueChanged += new System.EventHandler(this.priceTo_ValueChanged);
+            this.priceTo.ValueChanged += new System.EventHandler(this.object_ValueChanged);
             // 
             // tableLayoutPanel3
             // 
@@ -492,17 +494,17 @@
             // panelTape
             // 
             this.panelTape.Controls.Add(this.label17);
-            this.panelTape.Controls.Add(this.numericUpDown18);
+            this.panelTape.Controls.Add(this.speedMax);
             this.panelTape.Controls.Add(this.label50);
             this.panelTape.Controls.Add(this.label51);
-            this.panelTape.Controls.Add(this.numericUpDown19);
+            this.panelTape.Controls.Add(this.speedMin);
             this.panelTape.Controls.Add(this.label15);
             this.panelTape.Controls.Add(this.label16);
-            this.panelTape.Controls.Add(this.numericUpDown4);
+            this.panelTape.Controls.Add(this.widthMaxTape);
             this.panelTape.Controls.Add(this.label18);
             this.panelTape.Controls.Add(this.label19);
-            this.panelTape.Controls.Add(this.numericUpDown5);
-            this.panelTape.Location = new System.Drawing.Point(5, 0);
+            this.panelTape.Controls.Add(this.widthMinTape);
+            this.panelTape.Location = new System.Drawing.Point(12, 77);
             this.panelTape.Name = "panelTape";
             this.panelTape.Size = new System.Drawing.Size(376, 237);
             this.panelTape.TabIndex = 29;
@@ -520,32 +522,35 @@
             this.label17.TabIndex = 38;
             this.label17.Text = "до";
             // 
-            // numericUpDown18
+            // speedMax
             // 
-            this.numericUpDown18.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.numericUpDown18.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.numericUpDown18.Location = new System.Drawing.Point(229, 200);
-            this.numericUpDown18.Margin = new System.Windows.Forms.Padding(4);
-            this.numericUpDown18.Maximum = new decimal(new int[] {
-            100000500,
+            this.speedMax.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.speedMax.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.speedMax.DecimalPlaces = 3;
+            this.speedMax.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            196608});
+            this.speedMax.Location = new System.Drawing.Point(229, 200);
+            this.speedMax.Margin = new System.Windows.Forms.Padding(4);
+            this.speedMax.Maximum = new decimal(new int[] {
+            1,
             0,
             0,
             0});
-            this.numericUpDown18.Minimum = new decimal(new int[] {
-            150,
+            this.speedMax.Name = "speedMax";
+            this.speedMax.Size = new System.Drawing.Size(119, 30);
+            this.speedMax.TabIndex = 37;
+            this.speedMax.Tag = "speedTapeMax";
+            this.speedMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.speedMax.ThousandsSeparator = true;
+            this.speedMax.Value = new decimal(new int[] {
+            1,
             0,
             0,
             0});
-            this.numericUpDown18.Name = "numericUpDown18";
-            this.numericUpDown18.Size = new System.Drawing.Size(119, 30);
-            this.numericUpDown18.TabIndex = 37;
-            this.numericUpDown18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown18.ThousandsSeparator = true;
-            this.numericUpDown18.Value = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
+            this.speedMax.ValueChanged += new System.EventHandler(this.object_ValueChanged);
             // 
             // label50
             // 
@@ -568,27 +573,30 @@
             this.label51.TabIndex = 36;
             this.label51.Text = "от";
             // 
-            // numericUpDown19
+            // speedMin
             // 
-            this.numericUpDown19.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.numericUpDown19.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.numericUpDown19.Location = new System.Drawing.Point(50, 200);
-            this.numericUpDown19.Margin = new System.Windows.Forms.Padding(4);
-            this.numericUpDown19.Minimum = new decimal(new int[] {
-            15,
+            this.speedMin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.speedMin.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.speedMin.DecimalPlaces = 3;
+            this.speedMin.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            196608});
+            this.speedMin.Location = new System.Drawing.Point(50, 200);
+            this.speedMin.Margin = new System.Windows.Forms.Padding(4);
+            this.speedMin.Maximum = new decimal(new int[] {
+            1,
             0,
             0,
             0});
-            this.numericUpDown19.Name = "numericUpDown19";
-            this.numericUpDown19.Size = new System.Drawing.Size(119, 30);
-            this.numericUpDown19.TabIndex = 35;
-            this.numericUpDown19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown19.ThousandsSeparator = true;
-            this.numericUpDown19.Value = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
+            this.speedMin.Name = "speedMin";
+            this.speedMin.Size = new System.Drawing.Size(119, 30);
+            this.speedMin.TabIndex = 35;
+            this.speedMin.Tag = "speedTapeMin";
+            this.speedMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.speedMin.ThousandsSeparator = true;
+            this.speedMin.ValueChanged += new System.EventHandler(this.object_ValueChanged);
             // 
             // label15
             // 
@@ -613,32 +621,34 @@
             this.label16.TabIndex = 32;
             this.label16.Text = "до";
             // 
-            // numericUpDown4
+            // widthMaxTape
             // 
-            this.numericUpDown4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.numericUpDown4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.numericUpDown4.Location = new System.Drawing.Point(229, 99);
-            this.numericUpDown4.Margin = new System.Windows.Forms.Padding(4);
-            this.numericUpDown4.Maximum = new decimal(new int[] {
-            1000,
+            this.widthMaxTape.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.widthMaxTape.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.widthMaxTape.Location = new System.Drawing.Point(229, 99);
+            this.widthMaxTape.Margin = new System.Windows.Forms.Padding(4);
+            this.widthMaxTape.Maximum = new decimal(new int[] {
+            2000,
             0,
             0,
             0});
-            this.numericUpDown4.Minimum = new decimal(new int[] {
+            this.widthMaxTape.Minimum = new decimal(new int[] {
             150,
             0,
             0,
             0});
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(119, 30);
-            this.numericUpDown4.TabIndex = 31;
-            this.numericUpDown4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown4.ThousandsSeparator = true;
-            this.numericUpDown4.Value = new decimal(new int[] {
-            150,
+            this.widthMaxTape.Name = "widthMaxTape";
+            this.widthMaxTape.Size = new System.Drawing.Size(119, 30);
+            this.widthMaxTape.TabIndex = 31;
+            this.widthMaxTape.Tag = "widthTapeMax";
+            this.widthMaxTape.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.widthMaxTape.ThousandsSeparator = true;
+            this.widthMaxTape.Value = new decimal(new int[] {
+            1600,
             0,
             0,
             0});
+            this.widthMaxTape.ValueChanged += new System.EventHandler(this.object_ValueChanged);
             // 
             // label18
             // 
@@ -661,27 +671,34 @@
             this.label19.TabIndex = 30;
             this.label19.Text = "от";
             // 
-            // numericUpDown5
+            // widthMinTape
             // 
-            this.numericUpDown5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.numericUpDown5.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.numericUpDown5.Location = new System.Drawing.Point(50, 99);
-            this.numericUpDown5.Margin = new System.Windows.Forms.Padding(4);
-            this.numericUpDown5.Minimum = new decimal(new int[] {
-            15,
+            this.widthMinTape.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.widthMinTape.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.widthMinTape.Location = new System.Drawing.Point(50, 99);
+            this.widthMinTape.Margin = new System.Windows.Forms.Padding(4);
+            this.widthMinTape.Maximum = new decimal(new int[] {
+            2000,
             0,
             0,
             0});
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(119, 30);
-            this.numericUpDown5.TabIndex = 29;
-            this.numericUpDown5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown5.ThousandsSeparator = true;
-            this.numericUpDown5.Value = new decimal(new int[] {
-            15,
+            this.widthMinTape.Minimum = new decimal(new int[] {
+            1,
             0,
             0,
             0});
+            this.widthMinTape.Name = "widthMinTape";
+            this.widthMinTape.Size = new System.Drawing.Size(119, 30);
+            this.widthMinTape.TabIndex = 29;
+            this.widthMinTape.Tag = "widthTapeMin";
+            this.widthMinTape.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.widthMinTape.ThousandsSeparator = true;
+            this.widthMinTape.Value = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            this.widthMinTape.ValueChanged += new System.EventHandler(this.object_ValueChanged);
             // 
             // panelDisc
             // 
@@ -696,7 +713,7 @@
             this.panelDisc.Controls.Add(this.label23);
             this.panelDisc.Controls.Add(this.label24);
             this.panelDisc.Controls.Add(this.numericUpDown7);
-            this.panelDisc.Location = new System.Drawing.Point(12, 60);
+            this.panelDisc.Location = new System.Drawing.Point(9, 80);
             this.panelDisc.Name = "panelDisc";
             this.panelDisc.Size = new System.Drawing.Size(376, 237);
             this.panelDisc.TabIndex = 30;
@@ -733,6 +750,7 @@
             this.numericUpDown9.Name = "numericUpDown9";
             this.numericUpDown9.Size = new System.Drawing.Size(119, 30);
             this.numericUpDown9.TabIndex = 37;
+            this.numericUpDown9.Tag = "amountSectorsDiskMax";
             this.numericUpDown9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown9.ThousandsSeparator = true;
             this.numericUpDown9.Value = new decimal(new int[] {
@@ -740,6 +758,7 @@
             0,
             0,
             0});
+            this.numericUpDown9.ValueChanged += new System.EventHandler(this.object_ValueChanged);
             // 
             // label27
             // 
@@ -767,6 +786,7 @@
             this.numericUpDown10.Name = "numericUpDown10";
             this.numericUpDown10.Size = new System.Drawing.Size(119, 30);
             this.numericUpDown10.TabIndex = 35;
+            this.numericUpDown10.Tag = "amountSectorsDiskMin";
             this.numericUpDown10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown10.ThousandsSeparator = true;
             this.numericUpDown10.Value = new decimal(new int[] {
@@ -774,6 +794,7 @@
             0,
             0,
             0});
+            this.numericUpDown10.ValueChanged += new System.EventHandler(this.object_ValueChanged);
             // 
             // label20
             // 
@@ -811,28 +832,26 @@
             // 
             this.numericUpDown6.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.numericUpDown6.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.numericUpDown6.DecimalPlaces = 3;
             this.numericUpDown6.Location = new System.Drawing.Point(238, 89);
             this.numericUpDown6.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDown6.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numericUpDown6.Minimum = new decimal(new int[] {
-            150,
+            3,
             0,
             0,
             0});
             this.numericUpDown6.Name = "numericUpDown6";
             this.numericUpDown6.Size = new System.Drawing.Size(119, 30);
             this.numericUpDown6.TabIndex = 31;
+            this.numericUpDown6.Tag = "diamDiskMax";
             this.numericUpDown6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown6.ThousandsSeparator = true;
             this.numericUpDown6.Value = new decimal(new int[] {
-            150,
+            3,
             0,
             0,
             0});
+            this.numericUpDown6.ValueChanged += new System.EventHandler(this.object_ValueChanged);
             // 
             // label23
             // 
@@ -859,28 +878,30 @@
             // 
             this.numericUpDown7.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.numericUpDown7.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.numericUpDown7.DecimalPlaces = 3;
             this.numericUpDown7.Location = new System.Drawing.Point(59, 89);
             this.numericUpDown7.Margin = new System.Windows.Forms.Padding(4);
-            this.numericUpDown7.Minimum = new decimal(new int[] {
-            15,
+            this.numericUpDown7.Maximum = new decimal(new int[] {
+            1,
             0,
             0,
             0});
             this.numericUpDown7.Name = "numericUpDown7";
             this.numericUpDown7.Size = new System.Drawing.Size(119, 30);
             this.numericUpDown7.TabIndex = 29;
+            this.numericUpDown7.Tag = "diamDiskMin";
             this.numericUpDown7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown7.ThousandsSeparator = true;
             this.numericUpDown7.Value = new decimal(new int[] {
-            15,
+            1,
             0,
             0,
             0});
+            this.numericUpDown7.ValueChanged += new System.EventHandler(this.object_ValueChanged);
             // 
             // drumFilter
             // 
             this.drumFilter.BackColor = System.Drawing.Color.Transparent;
-            this.drumFilter.Controls.Add(this.panelTape);
             this.drumFilter.Controls.Add(this.label31);
             this.drumFilter.Controls.Add(this.label30);
             this.drumFilter.Controls.Add(this.label28);
@@ -898,7 +919,7 @@
             this.drumFilter.Controls.Add(this.label10);
             this.drumFilter.Controls.Add(this.label13);
             this.drumFilter.Controls.Add(this.minDiam);
-            this.drumFilter.Location = new System.Drawing.Point(19, 73);
+            this.drumFilter.Location = new System.Drawing.Point(12, 77);
             this.drumFilter.Name = "drumFilter";
             this.drumFilter.Size = new System.Drawing.Size(388, 237);
             this.drumFilter.TabIndex = 36;
@@ -965,6 +986,7 @@
             this.maxLen.Name = "maxLen";
             this.maxLen.Size = new System.Drawing.Size(78, 30);
             this.maxLen.TabIndex = 40;
+            this.maxLen.Tag = "maxLen";
             this.maxLen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.maxLen.ThousandsSeparator = true;
             this.maxLen.Value = new decimal(new int[] {
@@ -972,7 +994,7 @@
             0,
             0,
             0});
-            this.maxLen.ValueChanged += new System.EventHandler(this.maxLen_ValueChanged);
+            this.maxLen.ValueChanged += new System.EventHandler(this.object_ValueChanged);
             // 
             // maxFreq
             // 
@@ -999,13 +1021,14 @@
             this.maxFreq.Name = "maxFreq";
             this.maxFreq.Size = new System.Drawing.Size(119, 30);
             this.maxFreq.TabIndex = 36;
+            this.maxFreq.Tag = "maxFreq";
             this.maxFreq.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.maxFreq.Value = new decimal(new int[] {
             16,
             0,
             0,
             196608});
-            this.maxFreq.ValueChanged += new System.EventHandler(this.maxFreq_ValueChanged);
+            this.maxFreq.ValueChanged += new System.EventHandler(this.object_ValueChanged);
             // 
             // label29
             // 
@@ -1050,6 +1073,7 @@
             this.minLen.Name = "minLen";
             this.minLen.Size = new System.Drawing.Size(78, 30);
             this.minLen.TabIndex = 38;
+            this.minLen.Tag = "minLen";
             this.minLen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.minLen.ThousandsSeparator = true;
             this.minLen.Value = new decimal(new int[] {
@@ -1057,7 +1081,7 @@
             0,
             0,
             0});
-            this.minLen.ValueChanged += new System.EventHandler(this.minLen_ValueChanged);
+            this.minLen.ValueChanged += new System.EventHandler(this.object_ValueChanged);
             // 
             // minFreq
             // 
@@ -1084,6 +1108,7 @@
             this.minFreq.Name = "minFreq";
             this.minFreq.Size = new System.Drawing.Size(119, 30);
             this.minFreq.TabIndex = 34;
+            this.minFreq.Tag = "minFreq";
             this.minFreq.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.minFreq.ThousandsSeparator = true;
             this.minFreq.Value = new decimal(new int[] {
@@ -1091,7 +1116,7 @@
             0,
             0,
             196608});
-            this.minFreq.ValueChanged += new System.EventHandler(this.minFreq_ValueChanged);
+            this.minFreq.ValueChanged += new System.EventHandler(this.object_ValueChanged);
             // 
             // label14
             // 
@@ -1146,6 +1171,7 @@
             this.maxDiam.Name = "maxDiam";
             this.maxDiam.Size = new System.Drawing.Size(78, 30);
             this.maxDiam.TabIndex = 31;
+            this.maxDiam.Tag = "maxDiam";
             this.maxDiam.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.maxDiam.ThousandsSeparator = true;
             this.maxDiam.Value = new decimal(new int[] {
@@ -1153,7 +1179,7 @@
             0,
             0,
             0});
-            this.maxDiam.ValueChanged += new System.EventHandler(this.maxDiam_ValueChanged);
+            this.maxDiam.ValueChanged += new System.EventHandler(this.object_ValueChanged);
             // 
             // label10
             // 
@@ -1196,6 +1222,7 @@
             this.minDiam.Name = "minDiam";
             this.minDiam.Size = new System.Drawing.Size(78, 30);
             this.minDiam.TabIndex = 29;
+            this.minDiam.Tag = "minDiam";
             this.minDiam.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.minDiam.ThousandsSeparator = true;
             this.minDiam.Value = new decimal(new int[] {
@@ -1203,7 +1230,7 @@
             0,
             0,
             0});
-            this.minDiam.ValueChanged += new System.EventHandler(this.minDiam_ValueChanged);
+            this.minDiam.ValueChanged += new System.EventHandler(this.object_ValueChanged);
             // 
             // buttonReset
             // 
@@ -1328,6 +1355,7 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(246)))));
             this.ClientSize = new System.Drawing.Size(1524, 964);
+            this.Controls.Add(this.panelTape);
             this.Controls.Add(this.panelButtons);
             this.Controls.Add(this.panelDisc);
             this.Controls.Add(this.button5);
@@ -1365,10 +1393,10 @@
             this.tableLayoutPanel3.PerformLayout();
             this.panelTape.ResumeLayout(false);
             this.panelTape.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.speedMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.speedMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.widthMaxTape)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.widthMinTape)).EndInit();
             this.panelDisc.ResumeLayout(false);
             this.panelDisc.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
@@ -1415,16 +1443,16 @@
         private System.Windows.Forms.Panel drumFilter;
         private System.Windows.Forms.Panel panelTape;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.NumericUpDown numericUpDown18;
+        private System.Windows.Forms.NumericUpDown speedMax;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.NumericUpDown numericUpDown19;
+        private System.Windows.Forms.NumericUpDown speedMin;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.NumericUpDown widthMaxTape;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.NumericUpDown numericUpDown5;
+        private System.Windows.Forms.NumericUpDown widthMinTape;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;

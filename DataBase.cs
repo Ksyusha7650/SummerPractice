@@ -56,13 +56,15 @@ namespace SummerPractice
             return dt;
         }
 
-        public static DataTable GetFilters2(string type, string  chosenManifactures, 
+        public static DataTable GetFilters(string type, string  chosenManifactures, 
             int minWeight, int maxWeight, string chosenRawMaterials, int amountRawMat, int minLength, 
             int maxLength, int minWidth, int maxWidth, int minHeight, int maxHeight,
             float minPressure,  float maxPressure, float minPower, float maxPower,
             int minSquare, int maxSquare, int minWeightSingle, int maxWeightSingle,
             string chosenMaterials, int maxPrice, int minPrice, int minLen, int maxLen, 
-            int minDiam, int maxDiam, float minFr, float maxFr)
+            int minDiam, int maxDiam, float minFr, float maxFr, int widthTapeMin, int widthTapeMax,
+            float speedTapeMin, float speedTapeMax, float minDiamDisk, float maxDiamDisk, int amountSectorsDiskMin, 
+            int amountSectorsDiskMax)
         {
             Connect();
             MySqlCommand myCommand = new MySqlCommand();
@@ -96,16 +98,16 @@ namespace SummerPractice
             myCommand.Parameters.AddWithValue("@max_диам", maxDiam);
             myCommand.Parameters.AddWithValue("@min_час", minFr);
             myCommand.Parameters.AddWithValue("@max_час", maxFr);
-            myCommand.Parameters.AddWithValue("@min_ширл", 2);
-            myCommand.Parameters.AddWithValue("@max_ширл", 1);
-            myCommand.Parameters.AddWithValue("@min_скоростьЛенты", 2);
-            myCommand.Parameters.AddWithValue("@max_скоростьЛенты", 1);
-            myCommand.Parameters.AddWithValue("@min_диамДиск", 2);
-            myCommand.Parameters.AddWithValue("@max_диамДиск", 1);
+            myCommand.Parameters.AddWithValue("@min_ширл", widthTapeMin);
+            myCommand.Parameters.AddWithValue("@max_ширл", widthTapeMax);
+            myCommand.Parameters.AddWithValue("@min_скоростьЛенты", speedTapeMin);
+            myCommand.Parameters.AddWithValue("@max_скоростьЛенты", speedTapeMax);
+            myCommand.Parameters.AddWithValue("@min_диамДиск", minDiamDisk);
+            myCommand.Parameters.AddWithValue("@max_диамДиск", maxDiamDisk);
             myCommand.Parameters.AddWithValue("@min_колвоДиск", 2);
             myCommand.Parameters.AddWithValue("@max_колвоДиск", 1);
-            myCommand.Parameters.AddWithValue("@min_колвоСектДиск", 2);
-            myCommand.Parameters.AddWithValue("@max_колвоСектДиск", 1);
+            myCommand.Parameters.AddWithValue("@min_колвоСектДиск", amountSectorsDiskMin);
+            myCommand.Parameters.AddWithValue("@max_колвоСектДиск", amountSectorsDiskMax);
             myCommand.CommandText = "SelectAllOfType";
               myCommand.CommandType = CommandType.StoredProcedure;
             myCommand.ExecuteNonQuery();

@@ -96,7 +96,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.minDiam = new System.Windows.Forms.NumericUpDown();
             this.buttonReset = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.panelButtons = new System.Windows.Forms.TableLayoutPanel();
             this.buttonDiskFilter = new System.Windows.Forms.Button();
             this.buttonDrumFilter = new System.Windows.Forms.Button();
@@ -425,7 +424,7 @@
             this.checkedListBoxManifactures.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkedListBoxManifactures.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(28)))), ((int)(((byte)(21)))));
             this.checkedListBoxManifactures.FormattingEnabled = true;
-            this.checkedListBoxManifactures.Location = new System.Drawing.Point(17, 440);
+            this.checkedListBoxManifactures.Location = new System.Drawing.Point(19, 433);
             this.checkedListBoxManifactures.Name = "checkedListBoxManifactures";
             this.checkedListBoxManifactures.Size = new System.Drawing.Size(360, 116);
             this.checkedListBoxManifactures.Sorted = true;
@@ -442,6 +441,7 @@
             this.checkedListBoxRawMaterials.FormattingEnabled = true;
             this.checkedListBoxRawMaterials.Location = new System.Drawing.Point(19, 590);
             this.checkedListBoxRawMaterials.Name = "checkedListBoxRawMaterials";
+            this.checkedListBoxRawMaterials.ScrollAlwaysVisible = true;
             this.checkedListBoxRawMaterials.Size = new System.Drawing.Size(360, 116);
             this.checkedListBoxRawMaterials.TabIndex = 22;
             this.checkedListBoxRawMaterials.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxRawMaterials_SelectedIndexChanged);
@@ -468,7 +468,7 @@
             this.checkedListBoxMaterials.FormattingEnabled = true;
             this.checkedListBoxMaterials.Location = new System.Drawing.Point(19, 740);
             this.checkedListBoxMaterials.Name = "checkedListBoxMaterials";
-            this.checkedListBoxMaterials.Size = new System.Drawing.Size(360, 116);
+            this.checkedListBoxMaterials.Size = new System.Drawing.Size(310, 145);
             this.checkedListBoxMaterials.TabIndex = 24;
             this.checkedListBoxMaterials.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxMaterials_SelectedIndexChanged);
             // 
@@ -486,7 +486,7 @@
             // 
             // label9
             // 
-            this.label9.Location = new System.Drawing.Point(363, 892);
+            this.label9.Location = new System.Drawing.Point(369, 883);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(223, 46);
             this.label9.TabIndex = 27;
@@ -504,7 +504,7 @@
             this.panelTape.Controls.Add(this.label18);
             this.panelTape.Controls.Add(this.label19);
             this.panelTape.Controls.Add(this.widthMinTape);
-            this.panelTape.Location = new System.Drawing.Point(12, 77);
+            this.panelTape.Location = new System.Drawing.Point(12, 76);
             this.panelTape.Name = "panelTape";
             this.panelTape.Size = new System.Drawing.Size(376, 237);
             this.panelTape.TabIndex = 29;
@@ -738,12 +738,12 @@
             this.numericUpDown9.Location = new System.Drawing.Point(238, 200);
             this.numericUpDown9.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDown9.Maximum = new decimal(new int[] {
-            1000,
+            20,
             0,
             0,
             0});
             this.numericUpDown9.Minimum = new decimal(new int[] {
-            150,
+            1,
             0,
             0,
             0});
@@ -754,7 +754,7 @@
             this.numericUpDown9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown9.ThousandsSeparator = true;
             this.numericUpDown9.Value = new decimal(new int[] {
-            150,
+            20,
             0,
             0,
             0});
@@ -779,7 +779,7 @@
             this.numericUpDown10.Location = new System.Drawing.Point(59, 200);
             this.numericUpDown10.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDown10.Minimum = new decimal(new int[] {
-            15,
+            1,
             0,
             0,
             0});
@@ -790,7 +790,7 @@
             this.numericUpDown10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown10.ThousandsSeparator = true;
             this.numericUpDown10.Value = new decimal(new int[] {
-            15,
+            1,
             0,
             0,
             0});
@@ -1239,7 +1239,7 @@
             this.buttonReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonReset.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonReset.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(95)))), ((int)(((byte)(37)))));
-            this.buttonReset.Location = new System.Drawing.Point(786, 872);
+            this.buttonReset.Location = new System.Drawing.Point(740, 841);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(237, 43);
             this.buttonReset.TabIndex = 26;
@@ -1247,21 +1247,6 @@
             this.buttonReset.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.buttonReset.UseVisualStyleBackColor = false;
             this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(246)))));
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(28)))), ((int)(((byte)(21)))));
-            this.button5.Location = new System.Drawing.Point(12, 862);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(304, 53);
-            this.button5.TabIndex = 37;
-            this.button5.Text = "Дополнительные параметры";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button5.UseVisualStyleBackColor = false;
             // 
             // panelButtons
             // 
@@ -1354,11 +1339,10 @@
             this.AutoScrollMinSize = new System.Drawing.Size(50, 0);
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(246)))));
-            this.ClientSize = new System.Drawing.Size(1524, 964);
+            this.ClientSize = new System.Drawing.Size(1524, 928);
             this.Controls.Add(this.panelTape);
             this.Controls.Add(this.panelButtons);
             this.Controls.Add(this.panelDisc);
-            this.Controls.Add(this.button5);
             this.Controls.Add(this.drumFilter);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.buttonReset);
@@ -1469,7 +1453,6 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.NumericUpDown numericUpDown7;
         private System.Windows.Forms.Button buttonReset;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.NumericUpDown maxFreq;
         private System.Windows.Forms.Label label25;

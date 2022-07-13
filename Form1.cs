@@ -26,9 +26,52 @@ namespace SummerPractice
         int maxSquare, minSquare = 100500, maxWeightSingle, minWeightSingle = 100500;
         int minLengthDrum, maxLengthDrum, minDiamDrum, maxDiamDrum;
         float minFrequencyDrum, maxFrequencyDrum;
-        float minDiamDisk, maxDiamDisk; int amountSectorsDiskMin, amountSectorsDiskMax;
+        float minDiamDisk = 0, maxDiamDisk = 3; int amountSectorsDiskMin = 0, amountSectorsDiskMax = 20;
         int widthTapeMin = 0, widthTapeMax = 2000; float speedTapeMin = 0, speedTapeMax = 1;
 
+        public Form1()
+        {
+            InitializeComponent();
+            type = "all";
+            panels.Add(drumFilter);
+            panels.Add(panelTape);
+            panels.Add(panelDisc);
+            panels.Add(panelButtons);
+            buttons.Add(buttonDrumFilter);
+            buttons.Add(buttonTapeFilter);
+            buttons.Add(buttonDiskFilter);
+            manifactures = DataBase.GetManifactures();
+            foreach (String manifacture in manifactures)
+            {
+                checkedListBoxManifactures.Items.Add(manifacture);
+            }
+            rawMat = DataBase.GetRawMaterial(type);
+            foreach (String raw in rawMat)
+            {
+                checkedListBoxRawMaterials.Items.Add(raw);
+            }
+            mat = DataBase.GetMaterials();
+            foreach (String m in mat)
+            {
+                checkedListBoxMaterials.Items.Add(m);
+            }
+            chosenManifactures = chosenRawMat = chosenMat = type = "all";
+            priceFromValue = Int32.Parse(priceFrom.Value.ToString());
+            priceToValue = Int32.Parse(priceTo.Value.ToString());
+            tableFilters.DataSource = DataBase.GetFilters(type, chosenManifactures, minWeight, maxWeight
+               , chosenRawMat, amountOfChosenRawMaterial, minLength, maxLength, minWidth, maxWidth, minHeight, maxHeight, minPressure,
+               maxPressure, minPower, maxPower, minSquare, maxSquare, minWeightSingle, maxWeightSingle,
+               chosenMat, priceToValue, priceFromValue, minLengthDrum, maxLengthDrum, minDiamDrum, maxDiamDrum,
+               minFrequencyDrum, maxFrequencyDrum, widthTapeMin, widthTapeMax, speedTapeMin, speedTapeMax,
+               minDiamDisk, maxDiamDisk, amountSectorsDiskMin, amountSectorsDiskMax);
+            tableFilters.Columns[0].Frozen = true;
+            minDiamDrum = Int32.Parse(minDiam.Value.ToString());
+            maxDiamDrum = Int32.Parse(maxDiam.Value.ToString());
+            minLengthDrum = Int32.Parse(minLen.Value.ToString());
+            maxLengthDrum = Int32.Parse(maxLen.Value.ToString());
+            minFrequencyDrum = float.Parse(minFreq.Value.ToString());
+            maxFrequencyDrum = float.Parse(maxFreq.Value.ToString());
+        }
 
         private void object_ValueChanged(object sender, EventArgs e)
         {
@@ -159,52 +202,6 @@ namespace SummerPractice
                  chosenMat, priceToValue, priceFromValue, minLengthDrum, maxLengthDrum, minDiamDrum, maxDiamDrum,
                  minFrequencyDrum, maxFrequencyDrum, widthTapeMin, widthTapeMax, speedTapeMin, speedTapeMax,
                  minDiamDisk, maxDiamDisk, amountSectorsDiskMin, amountSectorsDiskMax);
-        }
-
-        public Form1()
-        {
-            InitializeComponent();
-            type = "all";
-            panels.Add(drumFilter);
-            panels.Add(panelTape);
-            panels.Add(panelDisc);
-            panels.Add(panelButtons);
-            buttons.Add(buttonDrumFilter);
-            buttons.Add(buttonTapeFilter);
-            buttons.Add(buttonDiskFilter);
-            manifactures = DataBase.GetManifactures();
-            foreach (String manifacture in manifactures)
-            {
-                checkedListBoxManifactures.Items.Add(manifacture);
-            }
-            rawMat = DataBase.GetRawMaterial(type);
-            foreach (String raw in rawMat)
-            {
-                checkedListBoxRawMaterials.Items.Add(raw);
-            }
-            mat = DataBase.GetMaterials();
-            foreach (String m in mat)
-            {
-                checkedListBoxMaterials.Items.Add(m);
-            }
-            chosenManifactures = chosenRawMat = chosenMat = type = "all";
-            priceFromValue = Int32.Parse(priceFrom.Value.ToString());
-            priceToValue = Int32.Parse(priceTo.Value.ToString());
-            tableFilters.DataSource = DataBase.GetFilters(type, chosenManifactures, minWeight, maxWeight
-               , chosenRawMat, amountOfChosenRawMaterial, minLength, maxLength, minWidth, maxWidth, minHeight, maxHeight, minPressure,
-               maxPressure, minPower, maxPower, minSquare, maxSquare, minWeightSingle, maxWeightSingle,
-               chosenMat, priceToValue, priceFromValue, minLengthDrum, maxLengthDrum, minDiamDrum, maxDiamDrum,
-               minFrequencyDrum, maxFrequencyDrum, widthTapeMin, widthTapeMax, speedTapeMin, speedTapeMax,
-               minDiamDisk, maxDiamDisk, amountSectorsDiskMin, amountSectorsDiskMax);
-            tableFilters.Columns[0].Frozen = true;
-            minDiamDrum = Int32.Parse(minDiam.Value.ToString());
-            maxDiamDrum = Int32.Parse(maxDiam.Value.ToString());
-            minLengthDrum = Int32.Parse(minLen.Value.ToString());
-            maxLengthDrum = Int32.Parse(maxLen.Value.ToString());
-            minFrequencyDrum = float.Parse(minFreq.Value.ToString());
-            maxFrequencyDrum = float.Parse(maxFreq.Value.ToString());
- 
-           
         }
 
         private void HidePanels()
